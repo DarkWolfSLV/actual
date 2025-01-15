@@ -634,7 +634,7 @@ class AccountInternal extends PureComponent<
     const account = this.props.accounts.find(acct => acct.id === accountId);
 
     if (account) {
-      const res = await global.Actual.openFileDialog({
+      const res = await window.Actual.openFileDialog({
         filters: [
           {
             name: t('Financial Files'),
@@ -669,7 +669,7 @@ class AccountInternal extends PureComponent<
       accountName && accountName.replace(/[()]/g, '').replace(/\s+/g, '-');
     const filename = `${normalizedName || 'transactions'}.csv`;
 
-    global.Actual.saveFile(
+    window.Actual.saveFile(
       exportedTransactions,
       filename,
       t('Export Transactions'),
